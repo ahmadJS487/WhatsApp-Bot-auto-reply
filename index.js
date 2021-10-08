@@ -1,4 +1,7 @@
 const ith = require('@open-wa/wa-automate');
+const moment = require('moment-timezone');
+moment.tz.setDefault('Asia/Jakarta').locale('id')
+const processTime = (timestamp, now) => {return moment.duration(now - moment(timestamp * 1000)).asSeconds()}
 
 const start = async (client) => {
 
@@ -9,9 +12,10 @@ const start = async (client) => {
       });
     
 	client.onMessage(async (message) => {
-        if (message.body === 'Hi') {
-            await client.sendText(message.from, '👋 Hello!');
+        if (message.body.toLowerCase() === 'ping') {
+            await client.sendText(message.from, `Pong ${processTime(message.t, moment())} S`);
           }
+          
 	});
 };
 
