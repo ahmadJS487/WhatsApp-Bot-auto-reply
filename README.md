@@ -13,7 +13,7 @@
 Clone this project
 ```bash
 > git clone https://github.com/ahmadzip/ITHWhatsappBot.git
-> cd ITHWhatsappBot
+> cd ITHWhatsappBot-main
 ```
 
 Install the dependencies
