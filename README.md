@@ -9,4 +9,4 @@
 </p>
 
 # Thanks to
-* [`open-wa/wa-automate-nodejs`](https://github.com/open-wa/wa-automate-nodejs)
+* [`open-wa/wa-automate-nodejs`](https://github.com/open-wa/wa-automate-nodejs) * 
