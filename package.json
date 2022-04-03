@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@open-wa/wa-automate": "^4.33.1",
+    "fs": "^0.0.1-security",
+    "moment-timezone": "^0.5.34"
+  }
+}
