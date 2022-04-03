@@ -3,8 +3,8 @@ const answer = {
     "p":"P Juga",
     "bot":"Hai",
 }
-const notSpesificAnswer = {
+const notspecificanswer = {
     "thanks":"Sama sama!",
     "hallo":"Hallo",
 }
-module.exports = {notSpesificAnswer, answer}
+module.exports = {notspecificanswer, answer}
