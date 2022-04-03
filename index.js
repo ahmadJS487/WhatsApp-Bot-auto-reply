@@ -13,7 +13,7 @@ const start = async (client) => {
 	client.onMessage(async (message) => {      
         if (!message.body) return;
         if (!!reply.answer[message.body.toLowerCase()]) return client.reply(message.from, reply.answer[message.body.toLowerCase()],message.id)
-        Object.keys(reply.notSpesificAnswer).forEach(e =>{if(message.body.toLowerCase().includes(e)) return client.reply(message.from, reply.notSpesificAnswer[e],message.id)})   
+        Object.keys(reply.notspecificanswer).forEach(e =>{if(message.body.toLowerCase().includes(e)) return client.reply(message.from, reply.notspecificanswer[e],message.id)})   
 	});
 };
 
