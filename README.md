@@ -23,7 +23,7 @@ Install the dependencies
 
 Run this bot
 ```bash
-> npm start
+> node .
 ```
 
 # Thanks to
