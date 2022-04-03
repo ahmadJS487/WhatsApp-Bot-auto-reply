@@ -1,27 +1,26 @@
 const ith = require('@open-wa/wa-automate');
 const moment = require('moment-timezone');
+const reply = require('./reply');
 moment.tz.setDefault('Asia/Jakarta').locale('id')
 const processTime = (timestamp, now) => {return moment.duration(now - moment(timestamp * 1000)).asSeconds()}
-
 const start = async (client) => {
-
     client.onStateChanged(state=>{
         console.log('statechanged', state)
         if(state==="CONFLICT" || state==="UNLAUNCHED") client.forceRefocus();
         if(state==='UNPAIRED') console.log('LOGGED OUT!!!!')
       });
     
-	client.onMessage(async (message) => {
-        if (message.body.toLowerCase() === 'ping') {
-            await client.sendText(message.from, `Pong ${processTime(message.t, moment())} S`);
-          }
-          
+	client.onMessage(async (message) => {      
+        if (!message.body) return;
+        if (!!reply.answer[message.body.toLowerCase()]) return client.reply(message.from, reply.answer[message.body.toLowerCase()],message.id)
+        Object.keys(reply.notSpesificAnswer).forEach(e =>{if(message.body.toLowerCase().includes(e)) return client.reply(message.from, reply.notSpesificAnswer[e],message.id)})   
 	});
 };
 
 
 const options = {
     sessionId: 'ithbot',
+    multiDevice: true,
     headless: true,
     qrTimeout: 60,
     authTimeout: 0,
